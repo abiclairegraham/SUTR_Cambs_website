@@ -2,78 +2,250 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex" />
-  <title>Stand Up to Racism - [Your Local Area]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Stand Up To Racism — Cambridge branch" />
+  <title>Stand Up To Racism — Cambridge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; background: #fff; color: #333; }
-    header { background: #000; color: #fff; padding: 2rem 1rem; text-align: center; }
-    header h1 { margin: 0; font-size: 2rem; }
-    header p { margin: 0.5rem 0 0; }
-    .hero { position: relative; }
-    .hero img { width: 100%; height: auto; display: block; }
-    .donate-button { display: block; margin: 2rem auto; text-align: center; }
-    .donate-button a { background: #e60000; color: #fff; padding: 1rem 2rem; text-decoration: none; font-weight: bold; border-radius: 5px; }
-    .section { padding: 2rem 1rem; max-width: 800px; margin: auto; }
-    .news { background: #f9f9f9; padding: 2rem 1rem; }
-    .news-item { margin-bottom: 1.5rem; }
-    .footer { background: #000; color: #fff; text-align: center; padding: 1rem; font-size: 0.9rem; }
-    .footer a { color: #f1d600; text-decoration: none; }
+    :root{
+      --bg:#ffffff; --fg:#1a1a1a; --muted:#6b7280; --card:#f8f8f8; --border:#e5e7eb; 
+      /* Accents inspired by national site */
+      --accent:#f1d600; /* yellow */
+      --accent-2:#e6007e; /* magenta */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;height:100%}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;background:var(--bg);color:var(--fg)}
+    a{color:inherit}
+    img{max-width:100%;display:block;height:auto}
+    .container{max-width:1000px;margin:0 auto;padding:0 1rem}
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{position:static;width:auto;height:auto;background:#000;color:#fff;padding:.5rem 1rem}
+    header{position:sticky;top:0;z-index:30;background:#000;color:#fff;border-bottom:1px solid #111}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 0}
+    .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+    .brand img{width:40px;height:40px;border-radius:999px}
+    .brand span{font-weight:700;letter-spacing:.2px}
+    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:.75rem;flex-wrap:wrap}
+    nav a{display:inline-block;padding:.5rem .8rem;border-radius:.5rem;text-decoration:none;color:#fff}
+    nav a:hover, nav a:focus{background:#111}
+    .cta-bar{background:var(--accent);color:#000}
+    .cta-bar .inner{display:flex;gap:1rem;align-items:center;justify-content:space-between;padding:.6rem 0;font-weight:600}
+    .cta-buttons{display:flex;gap:.5rem;flex-wrap:wrap}
+    .btn{display:inline-block;padding:.65rem 1rem;border-radius:.6rem;text-decoration:none;font-weight:700;border:2px solid transparent}
+    .btn.primary{background:#000;color:#fff}
+    .btn.primary:hover{background:#111}
+    .btn.magenta{background:var(--accent-2);color:#fff}
+    .btn.magenta:hover{filter:brightness(0.95)}
+    .btn.ghost{background:transparent;border-color:#000;color:#000}
+    .hero{background:linear-gradient(0deg,rgba(0,0,0,.45),rgba(0,0,0,.45)),url('hero.jpg') center/cover no-repeat;color:#fff}
+    .hero .inner{padding:4.5rem 0 3.5rem}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.75rem);margin:0 0 .5rem}
+    .hero p{max-width:48ch;margin:0 0 1rem;color:#e5e7eb}
+    .section{padding:2.25rem 0}
+    .grid{display:grid;gap:1rem}
+    @media(min-width:768px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1rem}
+    .card h3{margin:.25rem 0 .5rem;font-size:1.1rem}
+    .muted{color:var(--muted)}
+    .news-item:not(:last-child){border-bottom:1px dashed var(--border);padding-bottom:1rem;margin-bottom:1rem}
+    .insta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem}
+    @media(min-width:640px){.insta-grid{grid-template-columns:repeat(3,1fr)}}
+    footer{background:#000;color:#fff;margin-top:2rem}
+    footer .inner{padding:1.25rem 0;display:grid;gap:1rem}
+    .footer-links{display:flex;gap:1rem;flex-wrap:wrap}
+    .small{font-size:.9rem}
+    /* Accessibility helpers */
+    :focus{outline:3px solid var(--accent-2);outline-offset:3px}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Stand Up to Racism – [Your Local Area]</h1>
-    <p>Fighting racism and fascism in our community</p>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header role="banner">
+    <div class="container topbar" aria-label="Primary">
+      <a class="brand" href="/" aria-label="Stand Up To Racism Cambridge home">
+        <img src="logo-sutr.png" alt="Stand Up To Racism logo" />
+        <span>Stand Up To Racism — Cambridge</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#news">Local News</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="https://standuptoracism.org.uk/" rel="noopener" target="_blank">National site ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="cta-bar" role="region" aria-label="Key actions">
+      <div class="container inner">
+        <span>Get involved locally</span>
+        <div class="cta-buttons">
+          <a class="btn primary" href="#donate">Donate</a>
+          <a class="btn magenta" href="#signup">Join our newsletter</a>
+          <a class="btn ghost" href="#volunteer">Volunteer</a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <div class="hero">
-    <img src="your-hero-image.jpg" alt="Main banner image showing a protest or local action" />
-  </div>
+  <main id="main">
+    <section id="home" class="hero" role="region" aria-label="Hero">
+      <div class="container inner">
+        <h1>Fighting racism and fascism in Cambridge</h1>
+        <p>We organise protests, educational events and community support across Cambridgeshire. Everyone is welcome.</p>
+        <div class="cta-buttons">
+          <a class="btn primary" href="#donate">Donate locally</a>
+          <a class="btn magenta" href="#events">Find events</a>
+        </div>
+      </div>
+    </section>
 
-  <div class="donate-button">
-    <a href="https://donorbox.org/your-campaign" target="_blank">Donate</a>
-  </div>
+    <section id="donate" class="section container">
+      <div class="grid cols-2">
+        <div class="card">
+          <h2>Support our local work</h2>
+          <p>Your donation funds leaflets, venue hire, accessibility and travel for activists in our area.</p>
+          <!-- Replace with your Donorbox or Open Collective link -->
+          <p>
+            <a class="btn primary" href="https://donorbox.org/YOUR-CAMBRIDGE-CAMPAIGN" target="_blank" rel="noopener">Donate securely ↗</a>
+          </p>
+          <p class="small muted">We don’t store payment details on this site.</p>
+        </div>
+        <div class="card">
+          <h3>Other ways to help</h3>
+          <ul>
+            <li>Share our posts and events.</li>
+            <li>Print and distribute flyers at your workplace or uni.</li>
+            <li>Invite us to speak at your school, community group or union branch.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-  <div class="section news">
-    <h2>Latest News</h2>
-    <div class="news-item">
-      <h3>Upcoming Protest This Saturday</h3>
-      <p>Join us at 1.30pm in the city centre to show your support. Bring banners, placards and friends!</p>
+    <section id="signup" class="section container">
+      <div class="grid cols-2">
+        <div class="card">
+          <h2>Sign up for updates</h2>
+          <!-- Mailchimp/Action Network embed: replace ACTION URL and fields with your list -->
+          <form action="https://YOUR-LIST-URL" method="post" class="grid" aria-label="Newsletter signup">
+            <label>
+              <span class="small">Name</span>
+              <input type="text" name="NAME" required style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem" />
+            </label>
+            <label>
+              <span class="small">Email</span>
+              <input type="email" name="EMAIL" required style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem" />
+            </label>
+            <button class="btn magenta" type="submit">Subscribe</button>
+            <p class="small muted">By subscribing you agree to receive email updates from SUTR Cambridge. You can unsubscribe at any time.</p>
+          </form>
+        </div>
+        <div id="volunteer" class="card">
+          <h2>Volunteer</h2>
+          <!-- Use Formspree or Netlify Forms for a no‑backend form; replace the action URL -->
+          <form action="https://formspree.io/f/YOUR-ID" method="post" class="grid" aria-label="Volunteer form">
+            <label>
+              <span class="small">Name</span>
+              <input type="text" name="name" required style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem" />
+            </label>
+            <label>
+              <span class="small">Email</span>
+              <input type="email" name="email" required style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem" />
+            </label>
+            <label>
+              <span class="small">Phone (optional)</span>
+              <input type="tel" name="phone" style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem" />
+            </label>
+            <label>
+              <span class="small">How would you like to help?</span>
+              <textarea name="message" rows="3" style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem"></textarea>
+            </label>
+            <button class="btn primary" type="submit">I want to help</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources" class="section container">
+      <h2>Resources</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <h3>Posters & Leaflets</h3>
+          <p><a href="/assets/posters.zip" download>Download printable materials</a></p>
+        </article>
+        <article class="card">
+          <h3>Local anti‑racism support</h3>
+          <ul>
+            <li><a href="https://www.citizensadvice.org.uk/" target="_blank" rel="noopener">Citizens Advice</a></li>
+            <li><a href="https://www.equalityhumanrights.com/" target="_blank" rel="noopener">Equality & Human Rights Commission</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="news" class="section container">
+      <h2>Latest local news</h2>
+      <div class="grid">
+        <article class="card news-item">
+          <h3>Upcoming Protest this Saturday</h3>
+          <p>Join us at 1:30pm in the city centre. Bring banners, placards and friends!</p>
+          <p class="small muted">Posted 10 Sept 2025</p>
+        </article>
+        <article class="card news-item">
+          <h3>Local school hosts anti‑racism workshop</h3>
+          <p>We delivered a powerful session to over 200 students. Thanks to all who made it happen!</p>
+          <p class="small muted">Posted 3 Sept 2025</p>
+        </article>
+        <p class="small muted">Want a fuller blog? Link it here → <a href="#blog">Blog</a></p>
+      </div>
+    </section>
+
+    <section id="blog" class="section container">
+      <h2>Blog</h2>
+      <p class="muted">If you publish on Medium/Substack/WordPress, link or fetch latest posts here.</p>
+      <div class="grid cols-2">
+        <article class="card"><h3>Why we mobilise</h3><p>Cambridge has a proud anti‑racist history — here’s how you can be part of it.</p></article>
+        <article class="card"><h3>How to be a steward</h3><p>Tips for keeping protests safe and welcoming.</p></article>
+      </div>
+    </section>
+
+    <section id="events" class="section container">
+      <h2>Events</h2>
+      <div class="card">
+        <p>Find or host local events using <a href="https://www.eventbrite.co.uk/" target="_blank" rel="noopener">Eventbrite</a>. You can embed your Eventbrite listings here later.</p>
+      </div>
+    </section>
+
+    <section id="instagram" class="section container" aria-label="Instagram gallery">
+      <h2>Instagram</h2>
+      <p class="muted">Auto‑refresh daily to keep it light. Replace the LightWidget URL with your own.</p>
+      <!-- Easiest no‑code option (updates periodically): LightWidget or SnapWidget -->
+      <div class="card">
+        <iframe src="https://cdn.lightwidget.com/widgets/YOUR-WIDGET-ID.html" scrolling="no" allowtransparency="true" class="lw" style="width:100%;border:0;overflow:hidden;aspect-ratio: 3 / 1"></iframe>
+        <script async src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+      </div>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container inner">
+      <div class="footer-links">
+        <a href="mailto:cambridge@sutr.org.uk">cambridge@sutr.org.uk</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/accessibility.html">Accessibility</a>
+        <a href="https://standuptoracism.org.uk/" target="_blank" rel="noopener">National site</a>
+      </div>
+      <p class="small">© <span id="year"></span> Stand Up To Racism — Cambridge. We are an independent local group affiliated to the national campaign.</p>
     </div>
-    <div class="news-item">
-      <h3>Local School Hosts Anti-Racism Workshop</h3>
-      <p>Last week we delivered a powerful session to over 200 students. Thanks to all who made it happen!</p>
-    </div>
-  </div>
+  </footer>
 
-  <div class="section">
-    <h2>Contact Us</h2>
-    <p>Got questions or want to get involved? Email us at <a href="mailto:localgroup@example.org">localgroup@example.org</a></p>
-  </div>
-
-  <div class="footer">
-    <p>&copy; 2025 Stand Up to Racism – [Your Local Area]. <a href="/privacy.html">Privacy Policy</a></p>
-  </div>
-
-  <!-- Optional: GDPR Cookie Consent -->
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+  <!-- Lightweight cookie notice (optional). If you need granular controls, keep your current GDPR lib. -->
   <script>
-    window.addEventListener("load", function(){
-      window.cookieconsent.initialise({
-        palette: {
-          popup: { background: "#000" },
-          button: { background: "#f1d600" }
-        },
-        theme: "classic",
-        content: {
-          message: "This website uses cookies to ensure you get the best experience.",
-          dismiss: "Got it!",
-          link: "Learn more",
-          href: "/privacy.html"
-        }
-      });
-    });
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
