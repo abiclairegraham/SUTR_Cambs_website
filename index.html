@@ -58,9 +58,14 @@
             }
 
     .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
-    .brand img{width:300px;height:300px;border-radius:999px}
+ 
+    .brand img {max-height: 120px;   /* adjust until the banner feels right */
+                height: auto;
+                width: auto;
+              }
     .brand span{font-weight:700;letter-spacing:.2px}
     nav ul{list-style:none;margin:0;padding:0;display:flex;gap:.75rem;flex-wrap:wrap}
+    
     nav a{display:inline-block;padding:.5rem .8rem;border-radius:.5rem;text-decoration:none;color:#000 }
     nav a{font-weight: 700;   /* bold */
           font-size: 1.1rem;  /* slightly larger */
