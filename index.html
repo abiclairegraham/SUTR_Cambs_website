@@ -34,10 +34,6 @@
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;background:var(--bg);color:var(--fg)}
     a{color:inherit}
     
-    <!-- IGNORE BUG FOR NOW!!!
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v23.0&appId=APP_ID"></script>
-    -->
     
     img{max-width:100%;display:block;height:auto}
     .container{max-width:1000px;margin:0 auto;padding:0 1rem}
@@ -116,10 +112,6 @@
   </style>
 </head>
 
-<!-- MAKING THE FACEBOOK THINGY WORK -->  
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-  src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0"></script>
 
 <!--BODY OF THE WEBPAGE-->
 <body>
@@ -500,5 +492,10 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  
+<!-- MAKING THE FACEBOOK THINGY WORK -->  
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0"></script>
 </body>
 </html>
