@@ -192,22 +192,77 @@
       </div>
     </section>
 
-    <section id="news" class="section container">
-      <h2>Latest local news</h2>
-      <div class="grid">
-        <article class="card news-item">
-          <h3>Upcoming Protest this Saturday</h3>
-          <p>Join us at 1:30pm in the city centre. Bring banners, placards and friends!</p>
-          <p class="small muted">Posted 10 Sept 2025</p>
-        </article>
-        <article class="card news-item">
-          <h3>Local school hosts anti‑racism workshop</h3>
-          <p>We delivered a powerful session to over 200 students. Thanks to all who made it happen!</p>
-          <p class="small muted">Posted 3 Sept 2025</p>
-        </article>
-        <p class="small muted">Want a fuller blog? Link it here → <a href="#blog">Blog</a></p>
-      </div>
-    </section>
+
+
+<section id="news" class="section container">
+  <h2>Latest local news</h2>
+  <div id="news-list" class="grid"></div>
+</section>
+
+<script>
+  // Minimal, hand-curated article data:
+  const localNews = [
+    {
+      title: "Protesters rally outside Cambridge Union amid Nigel Farage visit",
+      source: "BBC News",
+      date: "2025-02-20",
+      url: "https://www.bbc.co.uk/news/articles/cwy3pp994q4o",
+      excerpt:
+        "Cambridge Stand Up To Racism joined unions and students outside the Union for a peaceful protest.",
+      image: "assets/img/news-bbc-farage.jpg", // (optional) save a local thumbnail or remove this line
+      imageAlt: "Protesters gathered near Cambridge Union"
+    },
+    {
+      title: "Cambridge first for People’s Assembly standoff with Great British Strikers",
+      source: "Cambridge Independent",
+      date: "2025-05-28",
+      url: "https://www.cambridgeindependent.co.uk/news/cambridge-first-for-people-s-assembly-standoff-with-great-br-9418987",
+      excerpt:
+        "Local groups including Cambridge Stand Up To Racism turned out at Market Square to counter a right-wing rally.",
+      image: "assets/img/news-ci-market-square.jpg",
+      imageAlt: "Market Square protest in Cambridge"
+    },
+    {
+      title: "‘No place for hate’: rally hears anti-racism message in Cambridge",
+      source: "Cambridge Independent",
+      date: "2024-11-25",
+      url: "https://www.cambridgeindependent.co.uk/news/stand-up-to-racism-rally-hears-cambridge-is-no-place-for-ha-9378490",
+      excerpt:
+        "Speakers from community groups and unions backed Cambridge Stand Up To Racism at a city-centre rally.",
+      image: "assets/img/news-ci-rally.jpg",
+      imageAlt: "Speakers at an anti-racism rally in Cambridge"
+    }
+  ];
+
+  // Render cards (keeps your existing .card styles):
+  const list = document.getElementById("news-list");
+  localNews.forEach(item => {
+    const card = document.createElement("article");
+    card.className = "card news-item";
+
+    // date -> pretty
+    const d = new Date(item.date);
+    const prettyDate = d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+
+    card.innerHTML = `
+      ${item.image ? `
+        <a href="${item.url}" target="_blank" rel="noopener">
+          <img src="${item.image}" alt="${item.imageAlt || ""}" style="border-radius:.6rem;margin-bottom:.75rem;"/>
+        </a>` : ""
+      }
+      <h3 style="margin-top:0">
+        <a href="${item.url}" target="_blank" rel="noopener" style="text-decoration:none">
+          ${item.title}
+        </a>
+      </h3>
+      <p class="small muted" style="margin:.2rem 0 .8rem">${item.source} • ${prettyDate}</p>
+      <p>${item.excerpt}</p>
+    `;
+    list.appendChild(card);
+  });
+</script>
+
+      
 
     <section id="blog" class="section container">
       <h2>Blog</h2>
