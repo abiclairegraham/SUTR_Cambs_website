@@ -116,6 +116,11 @@
   </style>
 </head>
 
+<!-- MAKING THE FACEBOOK THINGY WORK -->  
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0"></script>
+
 <!--BODY OF THE WEBPAGE-->
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -405,14 +410,14 @@
 <section id="social" class="section container" aria-label="Social media feeds">
   <h2>Social media</h2>
   <div class="grid cols-2">
-    
-    <!-- Facebook -->
     <div class="card">
       <h3>Facebook</h3>
+
+      <!-- DO NOT edit this opening tag; make sure the < is present and it closes with > -->
       <div class="fb-page"
            data-href="https://www.facebook.com/CambridgeSUTR/"
            data-tabs="timeline"
-           data-width=""               <!-- responsive -->
+           data-width=""
            data-height=""
            data-small-header="false"
            data-adapt-container-width="true"
