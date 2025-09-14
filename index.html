@@ -98,7 +98,15 @@
     nav a:hover, nav a:focus { background:#f8f8f8; }
      
     .cta-bar{background:var(--accent);color:#000}
-    .cta-bar .inner{display:flex;gap:1rem;align-items:center;justify-content:space-between;padding:.6rem 0;font-weight:600}
+
+    /* keep side padding instead of zeroing it */
+    .cta-bar .inner {
+      display:flex; gap:1rem; align-items:center; justify-content:space-between;
+      padding:.6rem 1rem;   /* was .6rem 0 */
+      font-weight:600;
+    }
+    
+    
     .cta-buttons{display:flex;gap:.5rem;flex-wrap:wrap}
     .btn{display:inline-block;padding:.65rem 1rem;border-radius:.6rem;text-decoration:none;font-weight:700;border:2px solid transparent}
     .btn.primary{background:#000;color:#fff}
@@ -107,7 +115,11 @@
     .btn.magenta:hover{filter:brightness(0.95)}
     .btn.ghost{background:transparent;border-color:#000;color:#000}
     .hero{background:linear-gradient(0deg,rgba(0,0,0,.45),rgba(0,0,0,.45)),url('hero.jpg') center/cover no-repeat;color:#fff}
-    .hero .inner{padding:4.5rem 0 3.5rem}
+
+    .hero .inner {
+      padding:4.5rem 1rem 3.5rem;  /* was 4.5rem 0 3.5rem */
+    }
+ 
     .hero h1{font-size:clamp(1.8rem,4vw,2.75rem);margin:0 0 .5rem}
     .hero p{max-width:48ch;margin:0 0 1rem;color:#e5e7eb}
     .section{padding:2.25rem 0}
@@ -122,7 +134,21 @@
     footer{background: #fff;   /* white background */
           color: #000;        /* black text */
           margin-top:2rem}
-    footer .inner{padding:1.25rem 0;display:grid;gap:1rem}
+
+    footer .inner {
+      padding:1.25rem 1rem;  /* was 1.25rem 0 */
+    }
+    
+    /* On phones, add even more breathing room */
+    @media (max-width: 640px) {
+      .cta-bar .inner { padding:.6rem 2rem; }
+      .hero .inner    { padding:3rem 2rem 2rem; }
+      footer .inner   { padding:1rem 2rem; }
+    
+      /* you already have this, but keep it to reinforce container padding on mobile */
+      .container { padding: 0 2.5rem; }
+    }
+    
     .footer-links{display:flex;gap:1rem;flex-wrap:wrap}
     .small{font-size:.9rem}
     /* Accessibility helpers */
