@@ -180,7 +180,7 @@
           <p>Your donation funds leaflets, venue hire, accessibility and travel for activists in our area.</p>
           <!-- Replace with your Donorbox or Open Collective link -->
           <p>
-            <a class="btn primary" href="https://donorbox.org/YOUR-CAMBRIDGE-CAMPAIGN" target="_blank" rel="noopener">Donate securely ↗</a>
+            <a class="btn primary" href="https://donate.stripe.com/test_8x28wR4VbbCp3lJc0d5AQ01" target="_blank" rel="noopener">Donate securely ↗</a>
           </p>
           <p class="small muted">We don’t store payment details on this site.</p>
         </div>
@@ -200,19 +200,43 @@
         <div class="card">
           <h2>Sign up for updates</h2>
           <!-- Mailchimp/Action Network embed: replace ACTION URL and fields with your list -->
-          <form action="https://YOUR-LIST-URL" method="post" class="grid" aria-label="Newsletter signup">
+      <!-- Mailchimp embed form -->
+          <form action="https://standuptoracism.us7.list-manage.com/subscribe/post?u=5b84e7ff1ed5810f035be6c21&amp;id=8dd8b51b41&amp;f_id=0081ace4f0" 
+                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" 
+                class="validate grid" target="_blank" novalidate>
+            
             <label>
-              <span class="small">Name</span>
-              <input type="text" name="NAME" required style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem" />
+              <span class="small">First name <span class="asterisk">*</span></span>
+              <input type="text" name="FNAME" id="mce-FNAME" required
+                     style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem" />
             </label>
+    
             <label>
-              <span class="small">Email</span>
-              <input type="email" name="EMAIL" required style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem" />
+              <span class="small">Last name <span class="asterisk">*</span></span>
+              <input type="text" name="LNAME" id="mce-LNAME" required
+                     style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem" />
             </label>
+    
+            <label>
+              <span class="small">Email address <span class="asterisk">*</span></span>
+              <input type="email" name="EMAIL" id="mce-EMAIL" class="required email" required
+                     style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem" />
+            </label>
+    
+            <!-- hidden anti-bot field -->
+            <div aria-hidden="true" style="position:absolute; left:-5000px;">
+              <input type="text" name="b_5b84e7ff1ed5810f035be6c21_8dd8b51b41" tabindex="-1" value="">
+            </div>
+    
             <button class="btn magenta" type="submit">Subscribe</button>
-            <p class="small muted">By subscribing you agree to receive email updates from SUTR Cambridge. You can unsubscribe at any time.</p>
+    
+            <p class="small muted">
+              By subscribing you agree to receive email updates from SUTR Cambridge. You can unsubscribe at any time.
+            </p>
           </form>
         </div>
+
+       
         <div id="volunteer" class="card">
           <h2>Volunteer</h2>
           <!-- Use Formspree or Netlify Forms for a no‑backend form; replace the action URL -->
