@@ -113,7 +113,9 @@
     .btn.primary:hover{background:#111}
     .btn.magenta{background:var(--accent-2);color:#fff}
     .btn.magenta:hover{filter:brightness(0.95)}
-    .btn.ghost{background:transparent;border-color:#000;color:#000}
+    .btn.blue{background:var(--accent-2);color:#00a0e3}
+    .btn.blue:hover{filter:brightness(0.95)}
+    .btn.ghost{background:transparent;border-color:#000;color:#000}   
     .hero{background:linear-gradient(0deg,rgba(0,0,0,.45),rgba(0,0,0,.45)),url('hero.jpg') center/cover no-repeat;color:#fff}
 
     .hero .inner {
@@ -226,7 +228,7 @@
         <div class="cta-buttons">
           <a class="btn primary" href="#donate">Donate</a>
           <a class="btn magenta" href="#signup">Join our newsletter</a>
-          <a class="btn ghost" href="#volunteer">Volunteer</a>
+          <a class="btn blue" href="#volunteer">Volunteer</a>
         </div>
       </div>
     </div>
@@ -255,35 +257,34 @@
           <p>Your donation funds leaflets, venue hire, accessibility and travel for activists in our area.</p>
           
           <div class="donate-grid">
-            <a class="btn primary" href="https://buy.stripe.com/7sY9AS9dY78ubtZ3RC7Vm00" target="_blank" rel="noopener">£1 / month</a>
-            <a class="btn primary" href="https://buy.stripe.com/6oUaEW2PAdwSapVfAk7Vm01" target="_blank" rel="noopener">£3 / month</a>
-            <a class="btn primary" href="https://buy.stripe.com/7sY6oGdue64q9lR4VG7Vm02" target="_blank" rel="noopener">£5 / month</a>
-            <a class="btn primary" href="https://buy.stripe.com/5kQfZgai20K641x3RC7Vm03" target="_blank" rel="noopener">£10 / month</a>
+            <a class="btn magenta" href="https://buy.stripe.com/7sY9AS9dY78ubtZ3RC7Vm00" target="_blank" rel="noopener">£1 / month</a>
+            <a class="btn magenta" href="https://buy.stripe.com/6oUaEW2PAdwSapVfAk7Vm01" target="_blank" rel="noopener">£3 / month</a>
+            <a class="btn magenta" href="https://buy.stripe.com/7sY6oGdue64q9lR4VG7Vm02" target="_blank" rel="noopener">£5 / month</a>
+            <a class="btn magenta" href="https://buy.stripe.com/5kQfZgai20K641x3RC7Vm03" target="_blank" rel="noopener">£10 / month</a>
           </div>
           
           <p class="small muted">We don’t store payment details on this site.</p>
         </div>
-        
+
+          <h3>Set up a Standing Order (no card fees)</h3>
+          <p>Use your online/mobile banking to set a monthly Standing Order to:</p>
+          <ul class="bank-details">
+            <li><strong>Account name:</strong> Cambridge Stand Up to Racism</li>
+            <li><strong>Bank:</strong> [Your bank name]</li>
+            <li><strong>Sort code:</strong> 23-05-80</li>
+            <li><strong>Account number:</strong> 33329921</li>
+            <li><strong>Reference:</strong> <code>SUTR YourName Postcode</code> (e.g. <code>SUTR A.Smith CB1</code>)</li>
+          </ul>
+          <p class="muted small">After you set it up, please <a href="mailto:standuptoracism.cambridge@gmail.com?subject=Standing%20Order%20setup">email us</a> your name, amount and reference so we can say thanks and keep records.</p>
+          
         <style>
-          .donate-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 15px 0;
-          }
-          .donate-grid .btn {
-            flex: 1 1 100px;
-            text-align: center;
-            background: #e63946; /* pick your campaign colour */
-            color: white;
-            padding: 10px 16px;
-            border-radius: 6px;
-            font-weight: bold;
-            text-decoration: none;
-          }
-          .donate-grid .btn:hover {
-            opacity: 0.9;
-          }
+          .donate-grid { display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 16px }
+          .btn { background:#0a66c2; color:#00a0e3; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600; text-align:center; flex:1 1 120px }
+          .btn:hover { opacity:.9 }
+          .bank-details { list-style: none; padding: 0; margin: 8px 0 0 }
+          .bank-details li { margin: 4px 0 }
+          .small { font-size: 0.9rem }
+          .muted { color:#555 }
         </style>
 
         <div class="card">
@@ -362,7 +363,7 @@
               <span class="small">How would you like to help?</span>
               <textarea name="message" rows="3" style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem"></textarea>
             </label>
-            <button class="btn primary" type="submit">I want to help</button>
+            <button class="btn blue" type="submit">I want to help</button>
           </form>
  
         </div>
