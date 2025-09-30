@@ -251,6 +251,8 @@
     <section id="donate" class="section container">
       <div class="grid cols-2">
         <div class="card">
+          
+          <!--
           <h2>Support our local work</h2>
           <p>Your donation funds leaflets, venue hire, accessibility and travel for activists in our area.</p>
           <!-- Replace with your Donorbox or Open Collective link -->
@@ -258,7 +260,44 @@
             <a class="btn primary" href="https://donate.stripe.com/test_8x28wR4VbbCp3lJc0d5AQ01" target="_blank" rel="noopener">Donate securely ↗</a>
           </p>
           <p class="small muted">We don’t store payment details on this site.</p>
+        </div> -->
+
+         
+          <h2>Support our local work</h2>
+          <p>Your donation funds leaflets, venue hire, accessibility and travel for activists in our area.</p>
+          
+          <div class="donate-grid">
+            <a class="btn primary" href="https://buy.stripe.com/7sY9AS9dY78ubtZ3RC7Vm00" target="_blank" rel="noopener">£1 / month</a>
+            <a class="btn primary" href="https://buy.stripe.com/6oUaEW2PAdwSapVfAk7Vm01" target="_blank" rel="noopener">£3 / month</a>
+            <a class="btn primary" href="https://buy.stripe.com/7sY6oGdue64q9lR4VG7Vm02" target="_blank" rel="noopener">£5 / month</a>
+            <a class="btn primary" href="https://buy.stripe.com/5kQfZgai20K641x3RC7Vm03" target="_blank" rel="noopener">£10 / month</a>
+          </div>
+          
+          <p class="small muted">We don’t store payment details on this site.</p>
         </div>
+        
+        <style>
+          .donate-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+          }
+          .donate-grid .btn {
+            flex: 1 1 100px;
+            text-align: center;
+            background: #e63946; /* pick your campaign colour */
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+          }
+          .donate-grid .btn:hover {
+            opacity: 0.9;
+          }
+        </style>
+
         <div class="card">
           <h3>Other ways to help</h3>
           <ul>
