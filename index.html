@@ -364,7 +364,41 @@
               <textarea name="message" rows="3" style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem"></textarea>
             </label>
             <button class="btn blue" type="submit">I want to help</button>
+            <!-- Honeypot (hidden) -->
+            <div style="position:absolute;left:-9999px;">
+              <label>Leave this field empty:
+                <input type="text" name="website" autocomplete="off" tabindex="-1">
+              </label>
+            </div>
+          
+            <!-- Time trap: filled by JS on load -->
+            <input type="hidden" name="form_started_at" id="form_started_at" value="">
+          
+            <button class="btn blue" type="submit">I want to help</button>
           </form>
+          
+          <script>
+            (function(){
+              const form = document.getElementById('volunteer');
+              const started = document.getElementById('form_started_at');
+              started.value = Date.now().toString();
+          
+              form.addEventListener('submit', function(e){
+                // Client-side honeypot
+                if (form.website && form.website.value.trim() !== '') {
+                  e.preventDefault();  // bot likely
+                  return;
+                }
+                // Client-side min time (e.g., 3 seconds)
+                const MIN_MS = 3000;
+                if (Date.now() - Number(started.value) < MIN_MS) {
+                  e.preventDefault();
+                  alert('Please take a moment to complete the form.');
+                  return;
+                }
+              });
+            })();
+          </script>
  
         </div>
       </div>
