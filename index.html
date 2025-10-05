@@ -408,6 +408,46 @@
         height: auto; /* reset for mobile */
       }
     }
+    /* Two-column news layout */
+    #news .news-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;  /* photo | list */
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+    
+    /* Make the photo fill its column neatly */
+    #news .news-photo {
+      border-radius: 12px;
+      overflow: hidden;                 /* clip corners */
+      /* Optional fixed visual height on desktop; tweak if you like */
+      min-height: 320px;
+    }
+    
+    #news .news-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;                 /* crop nicely, no distortion */
+      display: block;
+    }
+    
+    /* Keep your news cards using your existing .card styles */
+    #news .news-content h2 {
+      margin-top: 0;
+    }
+    
+    /* Mobile: stack image above news */
+    @media (max-width: 768px) {
+      #news .news-grid {
+        grid-template-columns: 1fr;
+      }
+      #news .news-photo {
+        min-height: 0;                  /* let image be natural height on mobile */
+      }
+      #news .news-photo img {
+        height: auto;                   /* no forced crop on small screens */
+      }
+    }
 
     
   </style>
@@ -699,12 +739,19 @@
 <!-- THE LOCAL NEWS SECTION -->
 
 <section id="news" class="section container">
-  <div class="hero-image">
-  <img src="images/Instagram_pics/Donkey_common.jpg" alt="Cambridge Stand Up to Racism volunteers at Cambridge stall in Market Square" />
+  <div class="news-grid">
+    <div class="news-photo">
+      <img src="images/Instagram_pics/Donkey_common.jpg"
+           alt="Cambridge Stand Up to Racism at Donkey Common, Cambridge" />
+    </div>
+
+    <div class="news-content">
+      <h2>Latest local news</h2>
+      <div id="news-list" class="grid"></div>
+    </div>
   </div>
-  <h2>Latest local news</h2>
-  <div id="news-list" class="grid"></div>
 </section>
+
 
 <script>
   // Minimal, hand-curated article data:
