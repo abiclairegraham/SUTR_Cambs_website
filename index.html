@@ -192,6 +192,82 @@
       }
     }
 
+    /* --- Mobile layout fixes --- */
+    @media (max-width: 640px) {
+    
+      /* 1️⃣ Navigation links – show in two rows instead of stacked */
+      header nav ul {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        justify-content: center;
+        gap: 10px 20px; /* vertical + horizontal spacing */
+        padding: 0;
+        list-style: none;
+      }
+    
+      header nav ul li {
+        display: inline-block;
+      }
+    
+      /* Optional: center the whole nav content */
+      header nav {
+        text-align: center;
+      }
+    
+      /* 2️⃣ Social icons – add spacing below to separate from nav links */
+      header .social-links {
+        margin-top: 8px;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+      }
+    
+      /* 3️⃣ CTA buttons – Donate + Volunteer side-by-side, Newsletter full width */
+      .cta-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+    
+      .cta-buttons .btn { width: 100%; }
+    
+      /* Order: assumes buttons are [Donate][Join newsletter][Volunteer] */
+      .cta-buttons .btn:nth-child(1) { /* Donate */
+        grid-column: 1;
+        grid-row: 1;
+      }
+    
+      .cta-buttons .btn:nth-child(3) { /* Volunteer */
+        grid-column: 2;
+        grid-row: 1;
+      }
+    
+      .cta-buttons .btn:nth-child(2) { /* Join newsletter spans both */
+        grid-column: 1 / -1;
+        grid-row: 2;
+      }
+    
+      /* 4️⃣ Make hero tagline more visible on mobile */
+      .hero .container,
+      .hero .inner {
+        min-height: 55vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+    
+      .hero h1 {
+        font-size: clamp(26px, 6vw, 36px);
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+      }
+    
+      .hero p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
 
     
   </style>
@@ -250,21 +326,20 @@
             </svg>
           </a>
         </div>
-
-
         
       </nav>
-    </div>
-    <div class="cta-bar" role="region" aria-label="Key actions">
-      <div class="container inner">
-        <span>Get involved locally</span>
-        <div class="cta-buttons">
-          <a class="btn primary" href="#donate">Donate</a>
-          <a class="btn magenta" href="#signup">Join our newsletter</a>
-          <a class="btn blue" href="#volunteer">Volunteer</a>
+      
+      </div>
+      <div class="cta-bar" role="region" aria-label="Key actions">
+        <div class="container inner">
+          <span>Get involved locally</span>
+          <div class="cta-buttons">
+            <a class="btn primary" href="#donate">Donate</a>
+            <a class="btn magenta" href="#signup">Join our newsletter</a>
+            <a class="btn blue" href="#volunteer">Volunteer</a>
+          </div>
         </div>
       </div>
-    </div>
   </header>
 
 
