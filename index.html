@@ -448,6 +448,11 @@
         height: auto;                   /* no forced crop on small screens */
       }
     }
+    @media (max-width: 640px) {
+      .fb-page {
+        min-height: 400px;
+      }
+    }
 
     
   </style>
@@ -858,24 +863,46 @@
 <section id="social" class="section container" aria-label="Social media feeds">
   <h2>Social media</h2>
   <div class="grid cols-2">
-    <div class="card">
-      <h3>Facebook</h3>
-
-      <!-- DO NOT edit this opening tag; make sure the < is present and it closes with > -->
-      <div class="fb-page"
-           data-href="https://www.facebook.com/CambridgeSUTR/"
-           data-tabs="timeline"
-           data-width=""
-           data-height=""
-           data-small-header="false"
-           data-adapt-container-width="true"
-           data-hide-cover="false"
-           data-show-facepile="true">
-        <blockquote cite="https://www.facebook.com/CambridgeSUTR/" class="fb-xfbml-parse-ignore">
-          <a href="https://www.facebook.com/CambridgeSUTR/">Cambridge Stand Up To Racism</a>
-        </blockquote>
+<div class="card">
+  <h3>Facebook</h3>
+      <div class="fb-wrapper">
+        <div class="fb-page"
+             data-href="https://www.facebook.com/CambridgeSUTR/"
+             data-tabs="timeline"
+             data-width="500"
+             data-height=""
+             data-small-header="false"
+             data-adapt-container-width="true"
+             data-hide-cover="false"
+             data-show-facepile="true">
+          <blockquote cite="https://www.facebook.com/CambridgeSUTR/" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/CambridgeSUTR/">Cambridge Stand Up To Racism</a>
+          </blockquote>
+        </div>
       </div>
     </div>
+    
+    <style>
+      /* Makes the Facebook feed fill the card width responsively */
+      .fb-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    
+      .fb-page {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+    
+      /* Optional: make the iframe fill the container */
+      .fb_iframe_widget,
+      .fb_iframe_widget span,
+      .fb_iframe_widget iframe {
+        width: 100% !important;
+      }
+    </style>
+
 
     <!-- Right column card: YouTube + YouTube -->
     <div class="card">
