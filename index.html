@@ -161,6 +161,39 @@
                     margin-top: .5rem;
                   }
 
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;  /* 2 equal halves */
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .hero-text {
+      max-width: 600px;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;      /* optional: gives soft corners */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      object-fit: cover;
+    }
+    
+    /* Stack vertically on small screens */
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    
+      .hero-image {
+        margin-top: 1rem;
+      }
+    }
+
+
+    
   </style>
 </head>
 
@@ -238,15 +271,22 @@
   
   <main id="main">
     <section id="home" class="hero" role="region" aria-label="Hero">
-      <div class="container inner">
-        <h1>Fighting racism and fascism in Cambridge</h1>
-        <p>We organise protests, educational events and community support across Cambridgeshire. Everyone is welcome.</p>
-        <div class="cta-buttons">
-          <a class="btn primary" href="#donate">Donate locally</a>
-          <a class="btn magenta" href="#events">Find events</a>
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Fighting racism and fascism in Cambridge</h1>
+          <p>We organise protests, educational events and community support across Cambridgeshire. Everyone is welcome.</p>
+          <div class="cta-buttons">
+            <a class="btn primary" href="#donate">Donate locally</a>
+            <a class="btn magenta" href="#events">Find events</a>
+          </div>
+        </div>
+    
+        <div class="hero-image">
+          <img src="images/Instagram_pics/Happy_market_stall_summer.webp" alt="Cambridge Stand Up to Racism volunteers at a community stall" />
         </div>
       </div>
     </section>
+
 
     <!-- SOME BUTTONS AND FORMS -->
     
