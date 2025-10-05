@@ -379,7 +379,36 @@
       }
     }
 
+    /* Make the two columns equal height */
+    #signup .grid.cols-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch; /* ensures both sides equal height */
+      gap: 1.5rem;
+    }
     
+    /* Make the image fill its column */
+    #signup .hero-image {
+      display: flex;
+    }
+    
+    #signup .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;   /* fills area without distortion */
+      border-radius: 1rem;
+    }
+    
+    /* On smaller screens, stack neatly */
+    @media (max-width: 768px) {
+      #signup .grid.cols-2 {
+        grid-template-columns: 1fr;
+      }
+      #signup .hero-image img {
+        height: auto; /* reset for mobile */
+      }
+    }
+
     
   </style>
 </head>
@@ -634,76 +663,6 @@
             </p>
           </form>
         </div>
-
-        <!-- 
-        <div id="volunteer" class="card">
-          <h2>Volunteer</h2>
-        
-          <form action="https://script.google.com/macros/s/AKfycbwqYyJKoiIqlIHyqEF-kI0EMpIKil2B7Xh9WI1r7hhC75nelmZ1g34zgaRK3t0oJO9c/exec"
-                method="post" class="grid" aria-label="Volunteer form">
-        
-            <label>
-              <span class="small">Name</span>
-              <input type="text" name="name" required autocomplete="name"
-                     style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem" />
-            </label>
-        
-            <label>
-              <span class="small">Email</span>
-              <input type="email" name="email" required autocomplete="email"
-                     style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem" />
-            </label>
-        
-            <label>
-              <span class="small">Phone (optional)</span>
-              <input type="tel" name="phone" autocomplete="tel"
-                     style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem" />
-            </label>
-        
-            <label>
-              <span class="small">How would you like to help?</span>
-              <textarea name="message" rows="3"
-                        style="width:100%;padding:.7rem;border:1px solid var(--border);border-radius:.5rem"></textarea>
-            </label>
-        
-            \\ Honeypot (hidden)
-            <div style="position:absolute;left:-9999px;" aria-hidden="true">
-              <label>Leave this field empty:
-                <input type="text" name="website" autocomplete="off" tabindex="-1">
-              </label>
-            </div>
-        
-            \\Time trap: set on page load 
-            <input type="hidden" name="form_started_at" id="form_started_at" value="">
-        
-            <button class="btn blue" type="submit">I want to help</button>
-          </form>
-        
-          <script>
-            (function () {
-              const form = document.querySelector('#volunteer form');   // <-- grab the form
-              const started = document.getElementById('form_started_at');
-              started.value = Date.now().toString();
-        
-              form.addEventListener('submit', function (e) {
-                // Honeypot
-                if (form.website && form.website.value.trim() !== '') {
-                  e.preventDefault(); // bot likely
-                  return;
-                }
-                // Min time (3s)
-                const MIN_MS = 3000;
-                if (Date.now() - Number(started.value) < MIN_MS) {
-                  e.preventDefault();
-                  alert('Please take a moment to complete the form.');
-                  return;
-                }
-              });
-            })();
-          </script>
-        </div>
-        -->
-  
       </div>
     </section>
 
