@@ -195,7 +195,8 @@
     /* --- Mobile layout fixes --- */
     @media (max-width: 640px) {
     
-      /* 1️⃣ Navigation links – 2 rows: 3 on top, 2 below */
+    /* 1️⃣ Navigation links – 2 rows: 3 on top, 2 below */
+    @media (max-width: 640px) { 
       header nav ul {
         display: grid;
         grid-template-columns: repeat(3, auto);
@@ -207,32 +208,32 @@
       }
     
       header nav ul li {
-        display: inline-block;
+        white-space: nowrap; /* prevent wrapping on multi-word links */
       }
     
-      /* Force specific links onto specific rows */
+      /* Assign rows */
       header nav ul li:nth-child(1),
       header nav ul li:nth-child(2),
       header nav ul li:nth-child(3) {
-        grid-row: 1; /* Home, Resources, Local News */
+        grid-row: 1; /* Home, Resources, Events */
       }
     
       header nav ul li:nth-child(4),
       header nav ul li:nth-child(5) {
-        grid-row: 2; /* Blog, National Site */
+        grid-row: 2; /* Local News, National Site */
       }
     
-      /* Center the overall nav block */
+      /* Center the nav */
       header nav {
         text-align: center;
       }
     
       /* 2️⃣ Social icons – add spacing below to separate from nav links */
       header .social-links {
-        margin-top: 8px;
+        margin-top: 10px;
         display: flex;
         justify-content: center;
-        gap: 12px;
+        gap: 14px;
       }
     
       /* 3️⃣ CTA buttons – Donate + Volunteer side-by-side, Newsletter full width */
@@ -302,14 +303,14 @@
           style="border-radius:999px"
         />
       </a>
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#resources">Resources</a></li>
-          <li><a href="#news">Local News</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="https://standuptoracism.org.uk/" rel="noopener" target="_blank">National site ↗</a></li>
-        </ul>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#news">Local News</a></li>
+        <li><a href="https://standuptoracism.org.uk/" rel="noopener" target="_blank">National Site ↗</a></li>
+      </ul>
+
         
         <!-- New social icons row (inline SVG, no CDN) -->
         <div class="social-links" >
