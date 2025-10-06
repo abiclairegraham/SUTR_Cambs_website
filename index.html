@@ -454,7 +454,30 @@
       }
     }
 
+    /* Make Mailchimp response messages bold and colored */
+    #mc_embed_signup .response {
+      display: block !important;
+      margin-top: 1rem;
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: center;
+    }
     
+    /* Success message = bold red (as you asked) */
+    #mc_embed_signup #mce-success-response {
+      color: #cc0000;   /* strong red */
+    }
+    
+    /* Error message = maybe darker red */
+    #mc_embed_signup #mce-error-response {
+      color: #b00020;
+    }
+    
+    /* (Optional) add a little fade-in effect for smoothness */
+    #mc_embed_signup .response {
+      transition: opacity 0.3s ease;
+    }
+
   </style>
 </head>
 
@@ -715,12 +738,7 @@
                     <option>Other</option>
                   </select>
                 </label>
-    
-                <!-- Mailchimp responses -->
-                <div id="mce-responses" class="clear" aria-live="polite">
-                  <div class="response" id="mce-error-response" style="display:none;"></div>
-                  <div class="response" id="mce-success-response" style="display:none;"></div>
-                </div>
+  
     
                 <!-- Mailchimp honeypot (keep inside the form) -->
                 <div aria-hidden="true" style="position:absolute; left:-5000px;">
@@ -729,6 +747,12 @@
     
                 <!-- Submit -->
                 <button class="btn primary" type="submit" id="mc-embedded-subscribe">Subscribe</button>
+
+                <!-- Mailchimp responses -->
+                <div id="mce-responses" class="clear" aria-live="polite">
+                  <div class="response" id="mce-error-response" style="display:none;"></div>
+                  <div class="response" id="mce-success-response" style="display:none;"></div>
+                </div>
     
                 <p class="small muted" style="margin:.5rem 0 0">
                   By subscribing you agree to receive email updates from SUTR Cambridge. You can unsubscribe at any time.
