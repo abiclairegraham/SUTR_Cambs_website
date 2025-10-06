@@ -113,6 +113,31 @@ nav a:hover, nav a:focus{background:#f8f8f8}
   .cta-bar .btn{padding:.5rem .9rem;font-size:1rem;border-radius:.55rem}
 }
 
+/* CTA bar layout on small screens: 
+   [Donate] [Volunteer]
+   [Join our newsletter (full width)]
+*/
+@media (max-width: 640px) {
+  .cta-bar .cta-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .cta-bar .cta-buttons .btn { width: 100%; }
+
+  /* HTML order is: Donate, Join, Volunteer */
+  .cta-bar .cta-buttons .btn:nth-child(1) { /* Donate */
+    grid-column: 1; grid-row: 1;
+  }
+  .cta-bar .cta-buttons .btn:nth-child(3) { /* Volunteer */
+    grid-column: 2; grid-row: 1;
+  }
+  .cta-bar .cta-buttons .btn:nth-child(2) { /* Join newsletter */
+    grid-column: 1 / -1; grid-row: 2;     /* spans both columns */
+  }
+}
+
+
 /* =========================
    Hero
    ========================= */
