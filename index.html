@@ -478,6 +478,18 @@
       transition: opacity 0.3s ease;
     }
 
+    /* Make links clearly identifiable and focusable */
+    main a { text-decoration: underline; text-underline-offset: 2px; }
+    main a:hover,
+    main a:focus-visible { text-decoration-thickness: 2px; }
+    
+    /* Keep nav/button styles as-is */
+    nav a, .btn { text-decoration: none; }
+    
+    /* Improve keyboard focus */
+    :focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; }
+
+
   </style>
 </head>
 
@@ -555,7 +567,7 @@
 
 
   
-  <main id="main">
+  <main id="main" role="main">
     <section id="home" class="hero" role="region" aria-label="Hero">
       <div class="container hero-grid">
         <div class="hero-text">
