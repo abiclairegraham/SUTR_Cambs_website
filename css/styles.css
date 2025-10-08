@@ -190,6 +190,12 @@ nav a:hover, nav a:focus{background:#f8f8f8}
 .muted{color:var(--muted)}
 .small{font-size:.9rem}
 
+.card ul {
+  padding-left: 1.25rem; /* adds left indent for bullets */
+  margin: 0.5rem 0 1rem; /* adds space above/below list */
+}
+
+
 /* Footer */
 footer{background:#fff;color:#000;margin-top:2rem}
 footer .inner{padding:1.25rem 1rem}
