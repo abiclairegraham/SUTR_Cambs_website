@@ -13,5 +13,11 @@
     } catch (e) {
       console.error('Include failed for', url, e);
     }
+    finally {
+      loaded++;
+      if (loaded === slots.length) {
+        // ✅ Fire event when all includes are done
+        document.dispatchEvent(new Event('includes:loaded'));
+      }
   });
 })();
