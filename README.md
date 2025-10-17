@@ -1,5 +1,15 @@
+# Site
+
 Work-in-progress website! Undergoing tidying and restructuring, transferring to roughly the structure below.
 
+This will be a simple static site with partials and JSON data for configuration and news.
+
+## Directory structure
+
+<details>
+<summary>Click to expand</summary>
+
+```text
 site/
 ├─ index.html
 ├─ privacy.html
@@ -7,7 +17,7 @@ site/
 ├─ assets/
 │  ├─ css/styles.css
 │  ├─ js/main.js
-│  └─ images/... (web-sized)
+│  └─ images/… (web-sized)
 ├─ partials/               # 1 file per section
 │  ├─ header.html
 │  ├─ hero.html
