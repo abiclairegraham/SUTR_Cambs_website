@@ -73,6 +73,11 @@
   });
   </script>
 
+  <script type="module"> 
+    import { initNews } from "./assets/js/news.js"; // Run after partials are in the DOM so #news-list exists 
+    document.addEventListener("partials:loaded", () => initNews()); 
+  </script>
+
   <!-- Lightweight cookie notice (optional). If you need granular controls, keep your current GDPR lib. -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
