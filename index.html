@@ -63,6 +63,27 @@
 
  <div data-include="partials/footer.html"></div>
 
+
+<script>
+async function includePartials() {
+  const slots = document.querySelectorAll("[data-include]");
+  for (const el of slots) {
+    const url = el.getAttribute("data-include");
+    const html = await (await fetch(url)).text();
+    el.outerHTML = html; // replace the placeholder with the partial's HTML
+  }
+  document.dispatchEvent(new Event("partials:loaded"));
+}
+includePartials();
+</script>
+
+<script type="module">
+  import { initNews } from "./assets/js/news.js";
+  // Run after partials are in the DOM so #news-list exists
+  document.addEventListener("partials:loaded", () => initNews());
+</script>
+  
+
 <!-- This is needed for updating the dat somehow I think?? -->
   <script>
   document.addEventListener('includes:loaded', () => {
