@@ -63,27 +63,8 @@
 
  <div data-include="partials/footer.html"></div>
 
-
-<script>
-async function includePartials() {
-  const slots = document.querySelectorAll("[data-include]");
-  for (const el of slots) {
-    const url = el.getAttribute("data-include");
-    const html = await (await fetch(url)).text();
-    el.outerHTML = html; // replace the placeholder with the partial's HTML
-  }
-  document.dispatchEvent(new Event("partials:loaded"));
-}
-includePartials();
-</script>
-
-<script type="module">
-  import { initNews } from "./assets/js/news.js";
-  // Run after partials are in the DOM so #news-list exists
-  document.addEventListener("partials:loaded", () => initNews());
-</script>
-  
-
+<!--🟦🟧🟪🟩 SCRIPTS 🟦🟧🟪🟩-->
+ 
 <!-- This is needed for updating the dat somehow I think?? -->
   <script>
   document.addEventListener('includes:loaded', () => {
@@ -91,7 +72,6 @@ includePartials();
     if (y) y.textContent = new Date().getFullYear();
   });
   </script>
-
 
   <!-- Lightweight cookie notice (optional). If you need granular controls, keep your current GDPR lib. -->
   <script>
@@ -102,5 +82,15 @@ includePartials();
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
   src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0"></script>
+
+<script type="module">
+  import { initNews } from "./assets/js/news.js";
+  document.addEventListener("includes:loaded", () => {
+    initNews();
+  });
+</script>
+
+  
 </body>
+
 </html>
