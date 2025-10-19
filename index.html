@@ -65,37 +65,54 @@
 
 <!--🟦🟧🟪🟩 SCRIPTS 🟦🟧🟪🟩-->
  
-<!-- This is needed for updating the dat somehow I think?? -->
-  <script>
+<!-- One place to update the year after includes -->
+<script>
   document.addEventListener('includes:loaded', () => {
     const y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();
   });
-  </script>
+</script>
 
-  <script type="module"> 
-    import { initNews } from "./assets/js/news.js"; // Run after partials are in the DOM so #news-list exists 
-    document.addEventListener("partials:loaded", () => initNews()); 
-  </script>
-
-  <script type="module">
+<!-- News init: only once, after includes are done -->
+<script type="module">
   import { initNews } from "./assets/js/news.js";
   document.addEventListener("includes:loaded", () => {
     initNews();
   });
-  </script>
+</script>
 
-  <!-- Lightweight cookie notice (optional). If you need granular controls, keep your current GDPR lib. -->
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  
-<!-- MAKING THE FACEBOOK THINGY WORK -->  
+<!-- Facebook SDK root (keep this before the SDK script) -->
 <div id="fb-root"></div>
+
+<!-- FB SDK (async) -->
 <script async defer crossorigin="anonymous"
   src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0"></script>
 
+<!-- Wire FB ready + re-parse after partials -->
+<script>
+  // Fire when FB SDK is ready
+  window.fbAsyncInit = function() {
+    FB.init({ xfbml: true, version: 'v17.0' });
+    document.dispatchEvent(new Event('fb:ready'));
+  };
 
+  // After partials are injected, (re)parse any fb-* elements
+  document.addEventListener('includes:loaded', () => {
+    const social = document.getElementById('social'); // from your partial
+    if (!social) return;
+
+    if (window.FB && FB.XFBML && typeof FB.XFBML.parse === 'function') {
+      FB.XFBML.parse(social); // Parse only the social section
+    } else {
+      // If SDK not ready yet, wait once and then parse
+      const onReady = () => {
+        FB.XFBML.parse(social);
+        document.removeEventListener('fb:ready', onReady);
+      };
+      document.addEventListener('fb:ready', onReady);
+    }
+  });
+</script>
   
 </body>
 
