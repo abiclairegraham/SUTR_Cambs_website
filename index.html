@@ -78,6 +78,13 @@
     document.addEventListener("partials:loaded", () => initNews()); 
   </script>
 
+  <script type="module">
+  import { initNews } from "./assets/js/news.js";
+  document.addEventListener("includes:loaded", () => {
+    initNews();
+  });
+  </script>
+
   <!-- Lightweight cookie notice (optional). If you need granular controls, keep your current GDPR lib. -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -88,12 +95,6 @@
 <script async defer crossorigin="anonymous"
   src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0"></script>
 
-<script type="module">
-  import { initNews } from "./assets/js/news.js";
-  document.addEventListener("includes:loaded", () => {
-    initNews();
-  });
-</script>
 
   
 </body>
