@@ -2,6 +2,7 @@
 function get(obj, path) {
   return path.split('.').reduce((o, k) => (o && k in o ? o[k] : undefined), obj);
 }
+console.log('[config] starting…');
 
 async function applyConfig() {
   try {
