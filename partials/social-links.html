@@ -1,11 +1,14 @@
 <section id="social" class="section container" aria-label="Social media feeds">
   <h2>Social media</h2>
+
   <div class="grid cols-2">
-<div class="card">
-  <h3>Facebook</h3>
+    <!-- Left column: Facebook -->
+    <div class="card">
+      <h3>Facebook</h3>
       <div class="fb-wrapper">
         <div class="fb-page"
-             data-href="https://www.facebook.com/CambridgeSUTR/"
+             data-config-key="facebook.facebook_url"
+             data-config-attr="data-href"
              data-tabs="timeline"
              data-width="500"
              data-height=""
@@ -13,18 +16,20 @@
              data-adapt-container-width="true"
              data-hide-cover="false"
              data-show-facepile="true">
-          <blockquote cite="https://www.facebook.com/CambridgeSUTR/" class="fb-xfbml-parse-ignore">
-            <a href="https://www.facebook.com/CambridgeSUTR/">Cambridge Stand Up To Racism</a>
+          <blockquote data-config-key="facebook.facebook_url"
+                      class="fb-xfbml-parse-ignore">
+            <a data-config-key="facebook.facebook_url"
+               target="_blank" rel="noopener">
+              Cambridge Stand Up To Racism
+            </a>
           </blockquote>
         </div>
       </div>
     </div>
 
-
-    <!-- Right column card: YouTube + YouTube -->
+    <!-- Right column: YouTube -->
     <div class="card">
       <h3>YouTube</h3>
-
       <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:.75rem;">
         <iframe src="https://www.youtube.com/embed/7HZKejueUqM" title="YouTube video"
                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -37,6 +42,5 @@
                 allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;"></iframe>
       </div>
     </div>
-
-  </div>  
+  </div>
 </section>
