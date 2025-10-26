@@ -91,36 +91,34 @@
 
 <!-- Make sure the config.json data is loaded after the partials -->
 <script>
-  document.addEventListener('includes:loaded', () => {
-    if (window.applyConfig) window.applyConfig();
-  });
-</script>
-  
-<!-- Wire FB ready + re-parse after partials -->
-<script>
-  // Fire when FB SDK is ready
+  // FB SDK ready → fire a custom event once
   window.fbAsyncInit = function() {
     FB.init({ xfbml: true, version: 'v17.0' });
     document.dispatchEvent(new Event('fb:ready'));
   };
 
-  // After partials are injected, (re)parse any fb-* elements
-  document.addEventListener('includes:loaded', () => {
-    const social = document.getElementById('social'); // from your partial
+  document.addEventListener('includes:loaded', async () => {
+    // 1) hydrate config first
+    if (window.applyConfig) {
+      try { await window.applyConfig(); } catch (e) { console.error(e); }
+    }
+
+    // 2) now (re)parse the social section
+    const social = document.getElementById('social');
     if (!social) return;
 
-    if (window.FB && FB.XFBML && typeof FB.XFBML.parse === 'function') {
-      FB.XFBML.parse(social); // Parse only the social section
+    const parseSocial = () => {
+      if (window.FB?.XFBML?.parse) FB.XFBML.parse(social);
+    };
+
+    if (window.FB?.XFBML?.parse) {
+      parseSocial();
     } else {
-      // If SDK not ready yet, wait once and then parse
-      const onReady = () => {
-        FB.XFBML.parse(social);
-        document.removeEventListener('fb:ready', onReady);
-      };
-      document.addEventListener('fb:ready', onReady);
+      document.addEventListener('fb:ready', parseSocial, { once: true });
     }
   });
 </script>
+
   
 </body>
 
