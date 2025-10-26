@@ -1,5 +1,8 @@
 {
   "stripe": {
+    "one_off": {
+      "gbp_one_off": https://buy.stripe.com/14A9AScqa8cy55B4VG7Vm04
+    },
     "monthly": {
       "gbp_1":  "https://buy.stripe.com/7sY9AS9dY78ubtZ3RC7Vm00",
       "gbp_3":  "https://buy.stripe.com/6oUaEW2PAdwSapVfAk7Vm01",
