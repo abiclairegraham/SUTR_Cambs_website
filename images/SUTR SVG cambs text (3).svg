@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="400" height="200"
+     viewBox="0 0 400 200">
+
+  <!-- Icon -->
+  <path d="M50.5,112.5a50.343,50.343,0,0,1-24.414-6.3c-.081-.238,9.548-12.885,9.645-13.013a7.25,7.25,0,0,0,2.845,1.634c1.988.749,5.671,1.648,11.925,1.677A34.539,34.539,0,0,0,85,62h16a50.458,50.458,0,0,1-50.5,50.5ZM35.73,93.189h0L19.937,78,59.368,46.654,36.91,52.8V38.18H74.5V62h.122V76.315H60.427L66.783,52.8,35.731,93.188ZM7.443,88.4h0A50.484,50.484,0,0,1,50.5,11.5l.5,0v16c-.152,0-.315,0-.5,0A34.539,34.539,0,0,0,16,62c-.143,6.41.935,10.418,1.864,12.651A9.4,9.4,0,0,0,19.937,78c-.009.009-.09.078-.232.2C16.081,81.262,7.633,88.4,7.443,88.4Z"
+        transform="translate(0 -11.5)"
+        fill="#d60976"/>
+
+  <!-- Text (move the whole block with the translate X value) -->
+  <g transform="translate(90 0) scale(0.58 1)">
+    <text x="25" y="45"
+          font-family="Arial Black, Impact, sans-serif"
+          font-size="60"
+          font-weight="900"
+          fill="#000000"
+          dominant-baseline="alphabetic">
+      CAMBRIDGE
+    </text>
+
+    <text x="39" y="100"
+          font-family="Arial Black, Impact, sans-serif"
+          font-size="70"
+          font-weight="900"
+          fill="#000000"
+          dominant-baseline="alphabetic">
+      STAND UP
+    </text>
+
+    <text x="-10" y="158"
+          font-family="Arial Black, Impact, sans-serif"
+          font-size="70"
+          font-weight="900"
+          fill="#000000"
+          dominant-baseline="alphabetic">
+      TO RACISM
+    </text>
+  </g>
+
+</svg>
